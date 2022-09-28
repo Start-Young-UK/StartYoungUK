@@ -51,5 +51,10 @@ public class AuthController {
 		return user.getUsername();
 		
 	}
+	
+	@GetMapping("/healthcheck")
+	public String healthcheck() {
+		return "Healthcheck is Successful";
+	}
 
 }
