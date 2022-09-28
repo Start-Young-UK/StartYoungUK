@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,14 +17,14 @@ import javax.persistence.OneToOne;
 public class Children {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer childrenid;
 	
 	@Column
 	private String name;
 	
 	@Column
-	@ElementCollection(targetClass=String.class)
-	private List<String> interests;
+	private String interests;
 	
 	@Column
 	private Date dob;
@@ -31,22 +33,33 @@ public class Children {
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn()
+	@JoinColumn(name="schoolid", nullable = false)
 	private School school;
+	
+	@ManyToOne
+	@JoinColumn(name="guardianid", nullable = false)
+	private Guardian guardian;
 
 	public Children() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Children(String name, List<String> interests, Date dob, User user, School school) {
+	
+
+	public Children(Integer childrenid, String name, String interests, Date dob, User user, School school,
+			Guardian guardian) {
 		super();
+		this.childrenid = childrenid;
 		this.name = name;
 		this.interests = interests;
 		this.dob = dob;
 		this.user = user;
 		this.school = school;
+		this.guardian = guardian;
 	}
+
+
 
 	public Integer getChildrenid() {
 		return childrenid;
@@ -64,11 +77,11 @@ public class Children {
 		this.name = name;
 	}
 
-	public List<String> getInterests() {
+	public String getInterests() {
 		return interests;
 	}
 
-	public void setInterests(List<String> interests) {
+	public void setInterests(String interests) {
 		this.interests = interests;
 	}
 
@@ -95,7 +108,14 @@ public class Children {
 	public void setSchool(School school) {
 		this.school = school;
 	}
-	
-	
+
+	public Guardian getGuardian() {
+		return guardian;
+	}
+
+	public void setGuardian(Guardian guardian) {
+		this.guardian = guardian;
+	}
+
 	
 }

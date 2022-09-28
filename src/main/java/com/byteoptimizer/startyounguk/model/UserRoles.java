@@ -2,12 +2,15 @@ package com.byteoptimizer.startyounguk.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class UserRoles {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer roleid;
 	
 	@Column

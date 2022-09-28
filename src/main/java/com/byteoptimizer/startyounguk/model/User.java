@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -11,7 +13,8 @@ import javax.persistence.OneToOne;
 public class User {
 
 	@Id
-	private Integer userid;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long userid;
 	
 	@Column
 	private String password;
@@ -57,11 +60,11 @@ public class User {
 
 
 
-	public Integer getUserid() {
+	public Long getUserid() {
 		return userid;
 	}
 
-	public void setUserid(Integer userid) {
+	public void setUserid(Long userid) {
 		this.userid = userid;
 	}
 

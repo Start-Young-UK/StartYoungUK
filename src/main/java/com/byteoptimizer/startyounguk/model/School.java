@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -12,6 +15,7 @@ import javax.persistence.OneToOne;
 public class School {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer schoolid;
 	
 	@Column
@@ -26,7 +30,7 @@ public class School {
 	@OneToOne
 	private User user;
 	
-	@OneToMany
+	@OneToMany(mappedBy="school")
 	private List<Children> childrens;
 
 	public School() {
@@ -43,6 +47,8 @@ public class School {
 		this.user = user;
 		this.childrens = childrens;
 	}
+
+
 
 	public Integer getSchoolid() {
 		return schoolid;
@@ -91,6 +97,7 @@ public class School {
 	public void setChildrens(List<Children> childrens) {
 		this.childrens = childrens;
 	}
+
 	
 	
 }
