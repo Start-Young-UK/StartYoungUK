@@ -1,6 +1,7 @@
 package com.byteoptimizer.startyounguk.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -60,4 +61,9 @@ public class SchoolController {
 		return (List<School>)schoolRepository.findAll();
 	}
 
+	
+	@PostMapping("/test")
+	public Map<String, Object> test(@RequestBody Map<String, Object> payload) {
+		return payload;
+	}
 }
