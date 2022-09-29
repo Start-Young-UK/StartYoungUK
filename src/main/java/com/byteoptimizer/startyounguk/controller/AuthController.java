@@ -1,6 +1,7 @@
 package com.byteoptimizer.startyounguk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import com.byteoptimizer.startyounguk.model.User;
 import com.byteoptimizer.startyounguk.repository.UserRepository;
 import com.byteoptimizer.startyounguk.repository.UserRolesRepository;
 
+@CrossOrigin
 @RestController
 public class AuthController {
 	

@@ -1,17 +1,15 @@
 package com.byteoptimizer.startyounguk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.byteoptimizer.startyounguk.model.User;
+import com.byteoptimizer.startyounguk.model.School;
 import com.byteoptimizer.startyounguk.repository.UserRepository;
-import com.byteoptimizer.startyounguk.repository.UserRolesRepository;
 
+@CrossOrigin
 @RestController
 public class SchoolController {
 	
@@ -37,5 +35,11 @@ public class SchoolController {
 //		return "";
 //		
 //	}
+	
+	@PostMapping("/school")
+	public School createSchool(@RequestBody School school) {
+		school.setUser(null)
+		return null;	
+	}
 
 }
