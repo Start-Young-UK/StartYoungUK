@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,22 +31,20 @@ public class School {
 	@OneToOne
 	private User user;
 	
-	@OneToMany(mappedBy="school")
-	private List<Children> childrens;
+//	@OneToMany(mappedBy="school", fetch = FetchType.LAZY)
+//	private List<Children> childrens;
 
 	public School() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public School(Integer maxStudents, Integer scholarshipOffering, String accreditation, User user,
-			List<Children> childrens) {
+	public School(Integer maxStudents, Integer scholarshipOffering, String accreditation, User user) {
 		super();
 		this.maxStudents = maxStudents;
 		this.scholarshipOffering = scholarshipOffering;
 		this.accreditation = accreditation;
 		this.user = user;
-		this.childrens = childrens;
 	}
 
 
@@ -90,13 +89,13 @@ public class School {
 		this.user = user;
 	}
 
-	public List<Children> getChildrens() {
-		return childrens;
-	}
-
-	public void setChildrens(List<Children> childrens) {
-		this.childrens = childrens;
-	}
+//	public List<Children> getChildrens() {
+//		return childrens;
+//	}
+//
+//	public void setChildrens(List<Children> childrens) {
+//		this.childrens = childrens;
+//	}
 
 	
 	

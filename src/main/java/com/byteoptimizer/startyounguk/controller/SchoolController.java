@@ -57,7 +57,6 @@ public class SchoolController {
 	
 	@GetMapping("/school")
 	public List<School> getAllSchools() {
-		
 		return (List<School>)schoolRepository.findAll();
 	}
 

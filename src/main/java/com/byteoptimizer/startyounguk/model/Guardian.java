@@ -22,20 +22,16 @@ public class Guardian {
 	
 	@OneToOne
 	private User user;
-	
-	@OneToMany(mappedBy="guardian")
-	private List<Children> childrens;
 
 	public Guardian() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Guardian(Integer annualIncome, User user, List<Children> childrens) {
+	public Guardian(Integer annualIncome, User user) {
 		super();
 		this.annualIncome = annualIncome;
 		this.user = user;
-		this.childrens = childrens;
 	}
 
 	public Integer getGuardianid() {
@@ -62,12 +58,12 @@ public class Guardian {
 		this.user = user;
 	}
 
-	public List<Children> getChildrens() {
-		return childrens;
-	}
-
-	public void setChildrens(List<Children> childrens) {
-		this.childrens = childrens;
-	}
+//	public List<Children> getChildrens() {
+//		return childrens;
+//	}
+//
+//	public void setChildrens(List<Children> childrens) {
+//		this.childrens = childrens;
+//	}
 	
 }
