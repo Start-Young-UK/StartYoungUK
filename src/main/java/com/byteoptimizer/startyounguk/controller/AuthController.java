@@ -21,11 +21,11 @@ public class AuthController {
 	@Autowired
 	private UserRolesRepository userroleRepository;
 	
-	@GetMapping("user/{userId}")
-	public User fetchUser(@PathVariable String userId, @RequestParam String roleName) {
+	@GetMapping("user/{email}")
+	public User fetchUserByEmail(@PathVariable String email, @RequestParam String roleName) {
 		User user = null;
-		if(userId != null) {
-			user = userRepository.findByIdAndRole(Long.valueOf(userId), roleName);
+		if(email != null) {
+			user = userRepository.findByEmailAndRole(email, roleName);
 		}
 		return user;
 		
@@ -50,6 +50,11 @@ public class AuthController {
 		}
 		return user.getUsername();
 		
+	}
+	
+	@GetMapping("/healthcheck")
+	public String healthCheck() {
+		return "HealthCheck is Successful";
 	}
 
 }

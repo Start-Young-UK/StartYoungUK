@@ -10,4 +10,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	@Query("FROM User u INNER JOIN u.userRoles r where u.userid=?1 AND r.rolename=?2")
 	public User findByIdAndRole(Long userId, String roleName);
 	
+	@Query("FROM User u INNER JOIN u.userRoles r where u.email=?1 AND r.rolename=?2")
+	public User findByEmailAndRole(String email, String roleName);
+	
 }
