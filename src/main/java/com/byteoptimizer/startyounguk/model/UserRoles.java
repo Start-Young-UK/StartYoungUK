@@ -21,10 +21,15 @@ public class UserRoles {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserRoles(String rolename) {
+	
+
+	public UserRoles(Integer roleid, String rolename) {
 		super();
+		this.roleid = roleid;
 		this.rolename = rolename;
 	}
+
+
 
 	public Integer getRoleid() {
 		return roleid;
