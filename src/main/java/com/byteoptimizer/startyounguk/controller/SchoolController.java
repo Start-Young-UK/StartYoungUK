@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.byteoptimizer.startyounguk.model.School;
@@ -47,7 +45,7 @@ public class SchoolController {
 //		
 //	}
 	
-	@RequestMapping(method =RequestMethod.POST, value="/school", headers = "Accept=application/json, Content-type=application/json")
+	@PostMapping("/school")
 	public School createSchool(@RequestBody School school) {
 		
 		UserRoles userRoles = new UserRoles(2, "SCHOOL");
@@ -64,7 +62,7 @@ public class SchoolController {
 	}
 
 	
-	@RequestMapping(method =RequestMethod.POST, value="/test", headers = "Accept=application/json, Content-type=application/json")
+	@PostMapping("/test")
 	public Map<String, Object> test(@RequestBody Map<String, Object> payload) {
 		return payload;
 	}
