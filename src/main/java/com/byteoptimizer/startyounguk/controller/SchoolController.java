@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.byteoptimizer.startyounguk.model.School;
+import com.byteoptimizer.startyounguk.repository.SchoolRepository;
 import com.byteoptimizer.startyounguk.repository.UserRepository;
 
 @CrossOrigin
@@ -14,7 +15,7 @@ import com.byteoptimizer.startyounguk.repository.UserRepository;
 public class SchoolController {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private SchoolRepository schoolRepository;
 	
 	
 //	@GetMapping("user/{userId}")
@@ -38,7 +39,10 @@ public class SchoolController {
 	
 	@PostMapping("/school")
 	public School createSchool(@RequestBody School school) {
-		school.setUser(null)
+		
+		school.getUser().getUserRoles().setRoleid(2);
+		school.getUser().setPassword("12345");
+		schoolRepository.save(school);
 		return null;	
 	}
 
